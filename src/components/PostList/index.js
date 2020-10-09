@@ -1,5 +1,5 @@
-import React from "react";
-
+import React, { useContext } from "react";
+import { UserContext } from "../../contexts/user-context";
 import "./index.css";
 
 function PostList(props) {
@@ -31,10 +31,12 @@ function Post(props) {
   );
 }
 
-function ActionMenu() {
+function ActionMenu(props) {
+  const context = useContext(UserContext);
+  console.log(context); // undefined
   return (
     <div className="post-actions">
-      <span className="post-user">You are ...</span>
+      <span className="post-user">You are {context.user}</span>
       <button className="button post-edit-action-button">Edit</button>
       <button className="button post-delete-action-button">Delete</button>
     </div>

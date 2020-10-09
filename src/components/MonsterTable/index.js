@@ -1,26 +1,25 @@
 import React from "react";
 
-export default class MonsterTable extends React.Component {
-  render() {
-    const { monsters } = this.props;
-    return (
-      <table style={{ width: "100%", border: "1px solid black" }}>
-        <thead>
-          <th>Name</th>
-          <th>Element</th>
-          <th>HP</th>
-          <th>MP</th>
-          <th>Rating</th>
-        </thead>
-        <tbody>
-          {monsters.map((monster, index) => {
-            return <TableRow key={monster.id} {...monster} />;
-          })}
-        </tbody>
-      </table>
-    );
-  }
+function MonsterTable(props) {
+  return (
+    <table style={{ width: "100%", border: "1px solid black" }}>
+      <thead>
+        <th>Name</th>
+        <th>Element</th>
+        <th>HP</th>
+        <th>MP</th>
+        <th>Rating</th>
+      </thead>
+      <tbody>
+        {props.monsters.map((monster, index) => {
+          return <TableRow key={monster.id} {...monster} />;
+        })}
+      </tbody>
+    </table>
+  );
 }
+
+export default MonsterTable;
 
 class TableRow extends React.Component {
   state = {
