@@ -33,7 +33,7 @@ function Post(props) {
 
 function ActionMenu(props) {
   const context = useContext(UserContext);
-  console.log(context); // undefined
+  console.log(context);
   return (
     <div className="post-actions">
       <span className="post-user">You are {context.user}</span>
