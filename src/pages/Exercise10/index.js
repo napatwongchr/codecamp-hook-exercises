@@ -5,7 +5,7 @@ import PostList from "../../components/PostList";
 import mockedPosts from "../../mocks/posts";
 
 function Exercise10() {
-  const [user, setUser] = useState("John");
+  const [user] = useState("John");
   return (
     <div className="page-container">
       <Instruction

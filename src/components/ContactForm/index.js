@@ -1,46 +1,33 @@
-import React, { useState } from "react";
+import React from "react";
+import { useFormInput, useWindowResize } from "../../hooks";
 import "./index.css";
 
 function ContactForm() {
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [complain, setComplain] = useState("");
-  const [ratings, setRatings] = useState("");
-
-  function handleFirstnameChange(e) {
-    setFirstname(e.target.value);
-  }
-
-  function handleLastnameChange(e) {
-    setLastname(e.target.value);
-  }
-
-  function handleComplainChange(e) {
-    setComplain(e.target.value);
-  }
-
-  function handleRatingChange(e) {
-    setRatings(e.target.value);
-  }
+  const firstname = useFormInput("");
+  const lastname = useFormInput("");
+  const complain = useFormInput("");
+  const ratings = useFormInput("");
+  const width = useWindowResize();
 
   function handleSubmit(e) {
     e.preventDefault();
     alert(
       JSON.stringify({
-        firstname,
-        lastname,
-        ratings,
-        complain,
+        firstname: firstname.value,
+        lastname: lastname.value,
+        ratings: ratings.value,
+        complain: complain.value,
+        width: width,
       })
     );
     resetForm();
   }
 
   function resetForm() {
-    setFirstname("");
-    setLastname("");
-    setRatings("");
-    setComplain("");
+    firstname.setValue("");
+    lastname.setValue("");
+    ratings.setValue("");
+    complain.setValue("");
   }
 
   return (
@@ -51,8 +38,8 @@ function ContactForm() {
           id="firstname"
           name="firstname"
           type="text"
-          value={firstname}
-          onChange={handleFirstnameChange}
+          value={firstname.value}
+          onChange={firstname.handleValueChange}
         />
       </div>
       <div className="field-container">
@@ -61,8 +48,8 @@ function ContactForm() {
           id="lastname"
           name="lastname"
           type="text"
-          value={lastname}
-          onChange={handleLastnameChange}
+          value={lastname.value}
+          onChange={lastname.handleValueChange}
         />
       </div>
       <div className="field-container">
@@ -72,8 +59,8 @@ function ContactForm() {
           name="complain"
           type="text"
           rows={5}
-          value={complain}
-          onChange={handleComplainChange}
+          value={complain.value}
+          onChange={complain.handleValueChange}
         />
       </div>
 
@@ -82,8 +69,8 @@ function ContactForm() {
         <select
           name="ratings"
           id="ratings"
-          value={ratings}
-          onChange={handleRatingChange}
+          value={ratings.value}
+          onChange={ratings.handleValueChange}
         >
           <option value="">Select Ratings</option>
           <option value="1">1 Star</option>
@@ -92,6 +79,9 @@ function ContactForm() {
           <option value="4">4 Star</option>
           <option value="5">5 Star</option>
         </select>
+      </div>
+      <div className="field-container">
+        <span>Window Width: {width}</span>
       </div>
 
       <button className="button button-submit" type="submit">

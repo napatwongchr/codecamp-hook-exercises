@@ -5,7 +5,7 @@ import Instruction from "../../components/Instruction";
 import mockedPosts from "../../mocks/posts";
 
 function Exercise7() {
-  const [user, setUser] = useState("John");
+  const [user] = useState("John");
   return (
     <div className="page-container">
       <div className="theme-button"></div>
