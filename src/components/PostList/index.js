@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { ThemeContext } from "../../contexts/theme-context";
 import { UserContext } from "../../contexts/user-context";
 import "./index.css";
 
@@ -21,24 +22,44 @@ function PostList(props) {
 
 function Post(props) {
   const { title, description, author } = props;
+  const { theme } = useContext(ThemeContext);
+  const postClass = theme === "light" ? "post" : "post post-dark";
+  const postTitlteClass =
+    theme === "light" ? "post-title" : "post-title post-title-dark";
+  const postDescription =
+    theme === "light"
+      ? "post-description"
+      : "post-description post-description-dark";
+  const postAuthor =
+    theme === "light" ? "post-author" : "post-author post-author-dark";
   return (
-    <div className="post">
-      <h1 className="post-title">{title}</h1>
-      <p className="post-description">{description}</p>
-      <p className="post-author">Author: {author}</p>
+    <div className={postClass}>
+      <h1 className={postTitlteClass}>{title}</h1>
+      <p className={postDescription}>{description}</p>
+      <p className={postAuthor}>Author: {author}</p>
       <ActionMenu />
     </div>
   );
 }
 
-function ActionMenu(props) {
-  const context = useContext(UserContext);
-  console.log(context);
+function ActionMenu() {
+  const user = useContext(UserContext);
+  const { theme } = useContext(ThemeContext);
+  const postUserClass =
+    theme === "light" ? "post-user" : "post-user post-user-dark";
+  const editButtonClass =
+    theme === "light"
+      ? "button post-edit-action-button"
+      : "button post-edit-action-button post-edit-action-button-dark";
+  const deleteButtonClass =
+    theme === "light"
+      ? "button post-delete-action-button"
+      : "button post-delete-action-button post-delete-action-button-dark";
   return (
     <div className="post-actions">
-      <span className="post-user">You are {context.user}</span>
-      <button className="button post-edit-action-button">Edit</button>
-      <button className="button post-delete-action-button">Delete</button>
+      <span className={postUserClass}>You are {user.user}</span>
+      <button className={editButtonClass}>Edit</button>
+      <button className={deleteButtonClass}>Delete</button>
     </div>
   );
 }

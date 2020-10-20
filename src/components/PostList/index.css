@@ -29,6 +29,26 @@
   margin-right: 50px;
 }
 
+.post-dark {
+  background-color: var(--main-branding-dark-color-200);
+}
+
+.post-title-dark {
+  color: var(--main-branding-dark-color-500);
+}
+
+.post-description-dark {
+  color: var(--main-branding-dark-color-500);
+}
+
+.post-author-dark {
+  color: var(--main-branding-dark-color-500);
+}
+
+.post-user-dark {
+  color: var(--main-branding-dark-color-500);
+}
+
 .post-actions {
   display: flex;
   justify-content: flex-end;
@@ -39,6 +59,12 @@
 .post-delete-action-button {
   width: 100px;
   font-size: 20px;
+}
+
+.post-edit-action-button-dark,
+.post-delete-action-button-dark {
+  background-color: var(--main-branding-dark-color-500);
+  border: 1px solid var(--main-branding-dark-color-300);
 }
 
 .post-delete-action-button {

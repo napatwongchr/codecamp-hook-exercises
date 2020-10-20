@@ -7,6 +7,11 @@
   --main-branding-color-300: rgb(228, 208, 183);
   --main-branding-color-200: rgb(249, 239, 226);
 
+  --main-branding-dark-color-500: rgb(34, 25, 12);
+  --main-branding-dark-color-400: rgb(48, 39, 28);
+  --main-branding-dark-color-300: rgb(75, 68, 59);
+  --main-branding-dark-color-200: rgb(121, 115, 109);
+
   --second-branding-color-500: rgb(79, 86, 219);
   --second-branding-color-400: rgb(108, 113, 217);
   --second-branding-color-300: rgb(153, 156, 215);
